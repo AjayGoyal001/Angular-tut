@@ -1,0 +1,46 @@
+{
+  "users": [
+    {
+      "name": "Ajay Goyal",
+      "age": "21",
+      "email": "ajay@gmail.com",
+      "id": "a123"
+    },
+    {
+      "id": "b123",
+      "name": "Aryan Goyal",
+      "age": 21,
+      "email": "aryan@gmail.com"
+    },
+    {
+      "id": "c123",
+      "name": "Yash Goyal",
+      "age": 23,
+      "email": "yash@gmail.com"
+    },
+    {
+      "id": "d123",
+      "name": "Tanish Goyal",
+      "age": 19,
+      "email": "Tanish@gmail.com"
+    },
+    {
+      "id": "e123",
+      "name": "Toshit Goyal",
+      "age": 13,
+      "email": "toshit@gmail.com"
+    },
+    {
+      "id": "9723",
+      "name": "Ahat",
+      "age": "23",
+      "email": "ajaa@gmail.com"
+    },
+    {
+      "id": "bf7f",
+      "name": "mahesh",
+      "age": "32",
+      "email": "mahesh@gmail.com"
+    }
+  ]
+}
