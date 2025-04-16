@@ -1,0 +1,412 @@
+<!-- <h1>User Name is: {{ displayName }}</h1>
+<input
+  type="text"
+  value="{{ name }}"
+  (input)="getName($event)"
+  placeholder="Enter your name"
+/>
+<br />
+<br />
+<button (click)="showName()">Get Name</button>
+<button (click)="setName()">Set Name</button> -->
+
+<!-- <hr />
+<h1>Email: {{ email }}</h1>
+<input type="text" value="{{ email }}" placeholder="Email Name" #emailField />
+<br />
+<br />
+<button (click)="getEmail(emailField.value)">Get Email</button>
+<button (click)="setEmail()">Set Email</button> -->
+
+<!-- <br /><br />
+<br /><br /><br />
+<hr />
+
+
+<h1 style="font: bolder; text-decoration: underline">Basic of signals</h1> -->
+
+<!-- <h2>Without signal value: {{ x }}</h2>
+<button (click)="x = 200">Increase property</button> -->
+
+<!-- <h2>With signal:</h2>
+<h3>{{ count() }}</h3>
+<button (click)="count.set(13)">Increase signal</button> -->
+
+<!-- <h1 style="text-decoration: underline">
+  Seen in Console how to update a count signal
+</h1>
+<h3>{{ count() }}</h3>
+<button (click)="updateValue()">Increase signal</button> -->
+
+<!-- <hr>
+<h1>Increment and Decrement by signals</h1> -->
+
+<!-- 1st way with use .ts file
+ <div>
+  <button (click)="incDecValue(-1)">Decrement</button>
+  <h1>{{ count() }}</h1>
+  <button (click)="incDecValue(+1)">Increment</button>
+</div> -->
+
+<!-- 2nd way without use ts file
+<button (click)="count.set(count() - 1)">Decrement</button>
+<h1>{{ count() }}</h1>
+<button (click)="count.set(count() + 1)">Increment</button> -->
+
+<!--writable and computed signal
+ <h1>{{ data() }}</h1>
+<button (click)="updateSignal()">Update</button>
+<h1>{{ count() }}</h1> -->
+
+<!-- how to update computed signals
+<h1>{{ z() }}</h1>
+<button (click)="updateVal()">Update</button> -->
+
+<!-- effect in angular
+<h1>{{ count() }}</h1>
+<button (click)="toggleVal()">Updated</button>
+@if (displayHeading) {
+<h1 style="background-color: green">Page heading</h1>
+} -->
+
+<!-- <h1>for loop contextual variables</h1>
+@for (user of users; track user; let i = $index; let f =$first; let l = $last) {
+ @if(f || l){
+<h3 style="background-color: red">{{ i + 1 }}. {{ user }}</h3>
+} 
+@else {
+<h3>{{ i + 1 }}. {{ user }}</h3>
+}  
+
+@if($odd){
+<h3 style="background-color: red">{{ i + 1 }}. {{ user }}</h3>
+} @else {
+<h3 style="background-color: yellow">{{ i + 1 }}. {{ user }}</h3>
+}
+<h1>{{ $count }}</h1> 
+}
+
+It is only work with the for loop
+@empty {
+<h1>No records Found</h1>
+}
+
+ @for (applicant of applicants; track applicant) { } @empty {
+<h1>No records Found</h1>
+} -->
+
+<!-- <h1>Two way binding</h1>
+ with the use of ngModule
+<input [(ngModel)]="name" type="text" placeholder="enter name" />
+<h1>{{ name }}</h1> -->
+
+<!-- <h1>Without Two way binding</h1>
+ with the use of the function
+<input type="text" (input)="changeName($event)" placeholder="enter name" />
+<h1>{{ name }}</h1> -->
+
+<!-- <h1>To Do List</h1>
+<input type="text" [(ngModel)]="task" placeholder="Enter new task" />
+<button (click)="addTask()">Add task</button>
+
+@for (task of taskList; track task.id) {
+<ul>
+  <li>{{ task.id }}.</li>
+  <li>{{ task.task }}</li>
+  <li (click)="deleteTask(task.id)"><button>Delete task</button></li>
+</ul>
+} -->
+
+<!-- <h1>ngFor directive</h1>
+<ul>
+  <li *ngFor="let x of users">
+    {{ x }}
+  </li>
+</ul> -->
+
+<!-- <h1>ngIf directive</h1>
+<div *ngIf="login; else elseBlock">
+  <a href="">Logout</a>
+</div>
+<ng-template #elseBlock>
+  <a href="">Login</a>
+</ng-template> -->
+
+<!-- <h1>Routing</h1>
+
+<ul>
+  <li>
+    <a routerLink="/login">Login</a>
+    <a routerLink="/about">About</a>
+    <a routerLink="/contact">Contact</a>
+  </li>
+</ul>
+
+<router-outlet /> -->
+
+<!-- <li><a routerLink="user/{{ user.id }}/{{ user.name }}"></a></li> -->
+
+<!-- <h1>Form Grouping</h1>
+<form action="" method="get" [formGroup]="profileForm" (ngSubmit)="onSubmit()">
+  <input type="text" placeholder="enter name" formControlName="name" />
+  <br /><br />
+  <input type="text" placeholder="enter password" formControlName="password" />
+  <br /><br />
+  <input type="text" placeholder="enter email" formControlName="email" />
+  <br /><br />
+  <button>Submit</button>
+  <button type="button" (click)="setValue()">Set Value</button>
+</form>
+
+<h1>{{ userName }}</h1>
+<h1>{{ email }}</h1> -->
+
+<!-- <h1>Reactive form validation</h1>
+<form action="" method="get" [formGroup]="profileForm" (ngSubmit)="onSubmit()">
+  <input type="text" placeholder="enter name" formControlName="name" />
+  <span *ngIf="name?.hasError('required')">*</span>
+  <span *ngIf="name?.invalid && (name?.dirty || name?.touched)"
+    >Required field</span
+  >
+  <br /><br />
+  <input type="text" placeholder="enter password" formControlName="password" />
+  <span *ngIf="password?.hasError('required')">*</span>
+  <span *ngIf="password?.invalid && (password?.dirty || password?.touched)"
+    >Required field</span
+  >
+  <br /><br />
+  <input type="email" placeholder="enter email" formControlName="email" />
+  <span *ngIf="email?.hasError('required')">*</span>
+  <span *ngIf="email?.invalid && (email?.dirty || email?.touched)"
+    >Required field</span
+  >
+  <br /><br />
+  <button>Submit</button>
+</form> -->
+
+<!-- <h1>Template driven form</h1>
+<form #userForm="ngForm" (ngSubmit)="addDetails(userForm.value)">
+  <input
+    type="text"
+    #name="ngModel"
+    required
+    placeholder="Enter name"
+    name="name"
+    ngModel
+  />
+  <span *ngIf="name.invalid">*</span>
+
+  <br /><br />
+
+  <input
+    type="password"
+    minlength="5"
+    maxlength="10"
+    required
+    #password="ngModel"
+    placeholder="Enter password"
+    name="password"
+    ngModel
+  />
+  <span *ngIf="password.invalid">*</span>
+
+  <br /><br />
+
+  <select name="gender" ngModel>
+    <option value="">Select Gender</option>
+    <option value="male">Male</option>
+    <option value="Female">Female</option>
+  </select>
+
+  <br /><br />
+
+  <input type="range" min="0" max="20" name="range" value="10" ngModel />
+
+  <br /><br />
+
+  <button [disabled]="userForm.invalid">Login</button>
+</form>
+
+<h1>{{ userDetails?.name }}</h1>
+<h1>{{ userDetails?.password }}</h1>
+<h1>{{ userDetails?.gender }}</h1>
+<h1>{{ userDetails?.range }}</h1> -->
+
+<!-- <h1>Pass data in child component</h1>
+<app-user [user]="userName"></app-user>
+
+<select #selectedUser (change)="onUserChange(selectedUser.value)">
+  <option value="">Select Name</option>
+  <option value="Ajay">Ajay</option>
+  <option value="Sam">Sam</option>
+  <option value="Tony">Tony</option>
+  <option value="Peter">Peter</option>
+</select> -->
+
+<!-- <h1>Reuse component</h1>
+@for (user of users; track user) {
+<div>
+  {{ user }}
+  <app-user [user]="user"></app-user>
+</div>
+} -->
+
+<!-- <h1>Pass data chlid to parent component</h1>
+<app-user (getUsers)="handleUsers($event)"></app-user>
+@for (user of users; track user) {
+<h1>{{ user }}</h1>
+} -->
+
+<!-- <h1>Pipes in angular</h1>
+<h1>{{ title }}</h1>
+<h1>{{ title | uppercase }}</h1>
+<h1>{{ title | titlecase }}</h1>
+
+<h1>{{ date }}</h1>
+<h1>{{ date | date }}</h1>
+<h1>{{ date | date : "fullDate" }}</h1>
+<h1>{{ date | date : "hh:mm:ss" }}</h1>
+
+<h1>{{ amount | currency }}</h1>
+<h1>{{ amount | currency : "EUR" }}</h1>
+<h1>{{ amount | currency : "INR" }}</h1>
+
+<h1>{{ date | date : "fullDate" | uppercase }}</h1> -->
+
+<!-- <h1>Make custom Pipes</h1>
+<h1>{{ amount | currencyConvertor }}</h1>
+<h1>{{ 12 | currencyConvertor : 12 }}</h1> -->
+
+<!-- <h1>Life cycle methods in angular</h1>
+<button (click)="updateCounter()">count: {{ counter }}</button>
+<div *ngIf="counter != 5">
+  <app-user [counter]="counter" #user></app-user>
+</div> -->
+
+<!-- <h1>Service</h1>
+<button (click)="getProductData()">Load Product Data</button>
+@for (product of productData; track product) {
+<h1>{{ product.name }}: {{ product.brand }}: {{ product.price }}</h1>
+} -->
+
+<!-- <h1>API Call</h1>
+@for (product of productList; track product.id) {
+<ul>
+  <li>{{ product.title }}</li>
+  <li>{{ product.brand }}</li>
+  <li>{{ product.category }}</li>
+  <li>{{ product.description }}</li>
+  <li>{{ product.availabilityStatus }}</li>
+  <li>{{ product.discountPercentage }}</li>
+</ul>
+} -->
+
+<!-- <h1>Integrate Json server API</h1>
+@for (user of productList; track user.id) {
+<br />
+<ul>
+  <li>
+    <p>name: {{ user.name }}</p>
+  </li>
+  <li>
+    <p>age: {{ user.age }}</p>
+  </li>
+  <li>
+    <p>email: {{ user.email }}</p>
+  </li>
+</ul>
+} -->
+
+<!-- <h1>API Call Service / Post API</h1>
+
+<form #userForm="ngForm" (ngSubmit)="addUser(userForm.value)">
+  <input type="text" name="name" placeholder="Enter name" ngModel />
+  <br /><br />
+  <input type="text" name="age" placeholder="Enter age" ngModel />
+  <br /><br />
+  <input type="text" name="email" placeholder="Enter email" ngModel />
+  <br /><br />
+  <button>Add User</button>
+</form>
+
+@for (user of productList; track user.id) {
+<br />
+<ul>
+  <li>
+    <p>name: {{ user.name }}</p>
+  </li>
+  <li>
+    <p>age: {{ user.age }}</p>
+  </li>
+  <li>
+    <p>email: {{ user.email }}</p>
+  </li>
+</ul>
+} -->
+
+<!-- <h1>Delete API method in angular</h1>
+
+<form #userForm="ngForm" (ngSubmit)="addUser(userForm.value)">
+  <input type="text" name="name" placeholder="Enter name" ngModel />
+  <br /><br />
+  <input type="text" name="age" placeholder="Enter age" ngModel />
+  <br /><br />
+  <input type="text" name="email" placeholder="Enter email" ngModel />
+  <br /><br />
+  <button>Add User</button>
+</form>
+
+@for (user of productList; track user.id) {
+<br />
+<ul>
+  <li>name: {{ user.name }}</li>
+  <li>age: {{ user.age }}</li>
+  <li>email: {{ user.email }}</li>
+  <li><button (click)="deleteUser(user.id)">Delete</button></li>
+</ul>
+} -->
+
+<!-- <h1>Populate data in input fields with API</h1>
+<form #userForm="ngForm" (ngSubmit)="addUser(userForm.value)">
+  <input
+    type="text"
+    name="name"
+    placeholder="Enter name"
+    [ngModel]="selectedUser?.name"
+  />
+  <br /><br />
+  <input
+    type="text"
+    name="age"
+    placeholder="Enter age"
+    [ngModel]="selectedUser?.age"
+  />
+  <br /><br />
+  <input
+    type="text"
+    name="email"
+    placeholder="Enter email"
+    [ngModel]="selectedUser?.email"
+  />
+  <br /><br />
+  @if(!selectedUser){
+  <button>Add User</button>
+  }@else {
+  <button>Update User</button>
+  }
+</form>
+
+@for (user of productList; track user.id) {
+<br />
+<ul>
+  <li>name: {{ user.name }}</li>
+  <li>age: {{ user.age }}</li>
+  <li>email: {{ user.email }}</li>
+  <li><button (click)="deleteUser(user.id)">Delete</button></li>
+  <li><button (click)="updateUser(user.id)">Update</button></li>
+</ul>
+} -->
+
+<h1>Route Lazy Loading...</h1>
+<a routerLink="/admin">Go to admin page</a>
+<router-outlet> </router-outlet>
